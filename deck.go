@@ -99,6 +99,7 @@ func (d deck) shuffle() {
 	for i := range d {
 		// generates a random number using library rand method
 		//random number is gen b/w length of deck of cards-1 and 0
+
 		newPosition := rand.Intn(len(d) - 1)
 
 		//swapping the card at randomPosition and current position
