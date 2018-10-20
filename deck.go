@@ -46,7 +46,9 @@ func newDeck() deck {
 
 //d is the actual copy of the deck we're working
 //with
-
+//below is an example of a receiver function where we attach
+//the print method to any deck d datatype
+//we can then invoke d.print on type d
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
@@ -54,6 +56,8 @@ func (d deck) print() {
 }
 
 //handSize is the argument being passed to the function which is of int data type
+//d deck is another another passed to the method
+//here the deal method isn't a receiver type but rather accepts dexk as an argument
 //two values of deck type will be returned
 func deal(d deck, handSize int) (deck, deck) {
 	//first value returned will start from beginning of slice to the handSize passed
