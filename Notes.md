@@ -60,6 +60,13 @@ How does random number is generated in GoLang?
         Create a new file ending _test.go
         And run the command go test
 
+        Go testing for reading and saving a file to hard drive
+        The GO framework doesn't do cleanup work.
+        It doesnt delete a file.If we create and save a file to hard disk via our testing, we need to handle the deleting of the file on our own
+        Go provides a Remove method that deletes the file or directory
+
+        So, we check for the method where we create and save a file to hard disk and then eventually delete this mock file c reated via test
+
 
 
 
