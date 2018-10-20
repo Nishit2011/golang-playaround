@@ -56,6 +56,11 @@ How does random number is generated in GoLang?
         func NewSource(seed int64) Source
 
 
+        How to create test file for Go?
+        Create a new file ending _test.go
+        And run the command go test
+
+
 
 
 
