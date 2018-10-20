@@ -9,6 +9,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 //creating an array of strings and add a bunch
@@ -96,11 +97,21 @@ func newDeckFromFile(filename string) deck {
 //func to shuffle a deck of cards
 //has a receiver(d deck) so that we can do cards.shuffle
 func (d deck) shuffle() {
+	//getting the source for raandom number generation
+
+	//everytime we start our program, we're going to take current time which we reflected as
+	//a value of type int64 and use that value as a seed value  for our Random Number Generator
+	//that value is passed as an argument, time.Now().UnixNano()
+	source := rand.NewSource(time.Now().UnixNano())
+	//passing the source to the New method which would give us a new copy of rand type
+	r := rand.New(source)
 	for i := range d {
 		// generates a random number using library rand method
 		//random number is gen b/w length of deck of cards-1 and 0
 
-		newPosition := rand.Intn(len(d) - 1)
+		//newPosition := rand.Intn(len(d) - 1)
+		//changing the above line to below, using the copy of rand type instead
+		newPosition := r.Intn(len(d) - 1)
 
 		//swapping the card at randomPosition and current position
 		d[i], d[newPosition] = d[newPosition], d[i]
